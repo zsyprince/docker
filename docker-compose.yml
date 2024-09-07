@@ -1,0 +1,13 @@
+version: "3"
+services:
+  php:
+    image: php8
+    restart: always
+    # /www是一个约定的工作目录，Nginx配置会直接在/www目录加载项目
+    # 例如挂载的是laravel项目，那就可以直接访问80端口了，无需再配置Nginx
+    # 如果更换目录，则需要修改容器内 /etc/nginx/http.d/default.conf 文件
+    volumes:
+      - "./:/www"   
+    ports:
+      - "80:80"
+
