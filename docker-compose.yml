@@ -10,4 +10,15 @@ services:
       - "./:/www"   
     ports:
       - "80:80"
-
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+ 
+  emqx:
+    image: emqx/emqx:latest
+    ports:
+      - "1883:1883"
+      - "8083:8083"
+      - "8084:8084"
+      - "18083:18083"
